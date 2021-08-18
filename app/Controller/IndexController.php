@@ -108,6 +108,7 @@ class IndexController extends Controller
         $info = $this->getPar($pa);
 
         //迁移处理的方式
+        //集群部署
 
 
         //因为只有面向对象 这样才可以 在我们 model value service
