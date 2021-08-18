@@ -90,6 +90,8 @@ class IndexController extends Controller
         // Model
         // Value
         // Application
+        static  $add = 1;
+        $add++;
 
         $argsUserinfo = new ArgsGetUserinfo();
         $argsUserinfo->userId = $this->request->input("user_id",1);
@@ -131,7 +133,8 @@ class IndexController extends Controller
             'userEntry'=>$userInfo,
             'isCorutine'=>$isCoroutine,
             'cid'=>$coroutineId,
-            're'=>$info
+            're'=>$info,
+            'c'=>$add
         ]);
     }
 }
