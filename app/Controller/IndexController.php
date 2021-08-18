@@ -25,4 +25,18 @@ class IndexController extends Controller
             'message' => 'Hello Hyperf. test2',
         ]);
     }
+    public function index2()
+    {
+        $url = $this->request->fullUrl();
+        $user = $this->request->input("user","userinfo");
+        $method = $this->request->getMethod();
+        return $this->response->success([
+            'user'=>$user,
+            'info'=>$url,
+            'version'=>'1.0.0',
+            'timestamp'=>time(),
+            'sign'=>md5(strval(time())).sha1(random_bytes(12))
+        ]);
+
+    }
 }
