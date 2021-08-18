@@ -23,15 +23,15 @@ class IndexLogic
         $replyinfo->timeStamp = time();
         $replyinfo->token = IndexLogic::getToken();
         $replyinfo->userid = $userMdoel->getUserId();
-        $replyinfo->username = empty($userMdoel->getUserName())??IndexLogic::getInitUserName();
+        $replyinfo->username = empty($userMdoel->getUserName())?IndexLogic::getInitUserName():$userMdoel->getUserName();
         return $replyinfo;
     }
     private static function getToken():string
     {
-        return env("user_token",random_bytes(3));
+        return env("user_token",sha1(strval(time())));
     }
     private static function getInitUserName():string
     {
-        return env("user_init_default_name",random_bytes(3));
+        return env("user_init_default_name","sin");
     }
 }
