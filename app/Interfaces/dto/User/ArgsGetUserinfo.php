@@ -5,9 +5,4 @@ class ArgsGetUserinfo
 {
     public $userId;
 }
-class ReplyGetUserinfo {
-    public $userid;
-    public $username;
-    public $token;
-    public $timeStamp;
-}
+
