@@ -112,6 +112,7 @@ class IndexController extends Controller
         //迁移处理的方式
         //集群部署
 
+        //静态属性会导致内存泄漏的问题
 
         //因为只有面向对象 这样才可以 在我们 model value service
         //内部的属于
