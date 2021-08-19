@@ -6,6 +6,8 @@ namespace App\Model;
  */
 class UserinfoModel
 {
+    const DefaultUserName = "guest";
+    const DefaultUserEmail = "986244259@qq.com";
     private $userId;
     private $userName;
     private $userEamil;
@@ -72,11 +74,15 @@ class UserinfoModel
 
     public function __toString():string
     {
-        return  sprintf("[#UserinfoMdoel: userId: %d, username: %s,userEmial: %s]",
-            $this->getUserId(),
-            $this->getUserName(),
-            $this->getUserEamil()
-        );
+//        return  sprintf("[#UserinfoMdoel: userId: %d, username: %s,userEmial: %s]",
+//            $this->getUserId(),
+//            $this->getUserName(),
+//            $this->getUserEamil()
+//        );
+        $return[UserContext::JsonUserNameField] = $this->getUserName();
+        $return[UserContext::JsonUserEmailField] = $this->getUserEamil();
+        $return[UserContext::JsonUserIDField] = $this->getUserId();
+        return  json_encode($return);
     }
 
     public function info():UserinfoModel{

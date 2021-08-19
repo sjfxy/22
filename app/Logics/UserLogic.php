@@ -7,6 +7,6 @@ class UserLogic
 {
     public function getInfoById(int $id)
     {
-        return new UserinfoModel($id);
+        return new UserinfoModel($id,UserinfoModel::DefaultUserName,UserinfoModel::DefaultUserEmail);
     }
 }
