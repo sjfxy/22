@@ -13,11 +13,13 @@ namespace App\Controller;
 
 use App\Interfaces\dto\User\ArgsGetUserinfo;
 use App\Logics\IndexLogic;
+use App\Logics\UserLogic;
 use Hyperf\Pool\Channel;
 use Hyperf\Utils\Coroutine;
 use Hyperf\Utils\Exception\ParallelExecutionException;
 use Hyperf\Utils\Parallel;
 use Hyperf\Utils\WaitGroup;
+use Psr\Container\ContainerInterface;
 
 class IndexController extends Controller
 {
@@ -137,5 +139,20 @@ class IndexController extends Controller
             're'=>$info,
             'c'=>$add
         ]);
+    }
+
+    /**
+     * @var UserLogic
+     */
+    private $userLogics;
+    public function __construct(UserLogic  $userLogic)
+    {
+        $this->userLogics = $userLogic;
+    }
+
+    public function getUserinfo()
+    {
+        $id = 1;
+        return $this->userLogics->getInfoById($id);
     }
 }

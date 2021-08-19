@@ -15,3 +15,6 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController::
 Router::addGroup("/v1",function (){
    Router::addRoute(["GET","POST","HEAD"],"/",'App\Controller\IndexController::index2');
 });
+Router::addGroup("/user",function (){
+    Router::get("/getuserinfo/:uid","App\Controller\IndexController::getUserinfo");
+});
