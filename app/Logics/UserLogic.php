@@ -7,6 +7,7 @@ class UserLogic
 {
     public function getInfoById(int $id)
     {
+        //配置修正
         return new UserinfoModel($id,UserinfoModel::DefaultUserName,UserinfoModel::DefaultUserEmail);
     }
 }
